@@ -16,20 +16,22 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of repdemoproj is to ...
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+The goal of `repdemoproj` is to demonstrate a reproducible data analysis project
 
-```{r cars}
-summary(cars)
+## Docker
+
+Run this project in Docker.
+```
+docker pull xmjandrews/verse:20.06.25
+docker run -rm -p 8787:8787 -e PASSWORD=<passwd> -e ROOT=true -v <local drive>:/home/rstudio xmjandrews/verse:20.06.25
 ```
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date.
+The `Dockerfile` for the Docker image is also available [here](Dockerfile)
 
-You can also embed plots, for example:
+## Package
 
-```{r pressure, echo = FALSE}
-plot(pressure)
+```{r demo, eval = F}
+library(bayeslmm)
+lmmplot(sleepstudy)
 ```
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub!
